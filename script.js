@@ -56,11 +56,29 @@ function removeHighlight(e) {
         e.target.classList.remove('highlight');
     }
 }
+function searchHandler(e) {
+    const userInput = e.target.value;
+    const searchResults = search(userInput);
+    showSuggestions(searchResults, userInput);
 
+    // Checks to see if input is empty and hide suggestions if true
+    if (!userInput.trim()) {
+        hideSuggestions();
+    }
+}
 
+// Event listener to hide suggestions on blur
+input.addEventListener('blur', hideSuggestions);
+
+function hideSuggestions() {
+    // Checks if the input is empty
+    if (!input.value.trim()) {
+        suggestions.innerHTML = '';  // Clear the suggestion list
+        suggestions.classList.remove('has-suggestions');
+        input.classList.remove('has-suggestions');
+    }
+}
 input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
 suggestions.addEventListener('mouseover', highlightSuggestion);
 suggestions.addEventListener('mouseout', removeHighlight);
-//input.addEventListener('blur', hideSuggestions); // Event listener to hide suggestions on blur
-//suggestions.addEventListener('click')
