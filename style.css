@@ -1,0 +1,106 @@
+* {
+   box-sizing: border-box; 
+}
+h1{
+  text-align: center;
+  margin-bottom: 20px;
+  display: block;
+}
+:focus {
+  outline: none; 
+  border: 2px solid #ff6347;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #ffffff, #008080); /* White to teal gradient */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Align items in a column */
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px; 
+  font-family: Honk, Arial, Helvetica, sans-serif;
+  font-size: 70px;
+}
+
+.search-container {
+  text-align: center;
+  
+}
+.search-container input,
+.search-container .suggestions {
+  margin-top: 10px;
+  background: linear-gradient(to bottom right, #ffffff, #008080);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.search-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.search-container .suggestions {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.has-suggestions {
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px;
+ 
+  
+}
+
+
+ul.has-suggestions li {
+  border-bottom: 1px solid #eee;
+  font-family: Protest Riot, Arial, Helvetica, sans-serif;
+}
+
+/* Style the last li element within the ul.has-suggestions */
+ul.has-suggestions li:last-child {
+  border-bottom: none;
+  font-family: Protest Riot, Arial, Helvetica, sans-serif;
+}
+
+ul li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: Protest Riot, Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+ul li:hover {
+  background: #238592;
+}
+
+input {
+     width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 25px;
+  background-color: #ffffff; 
+  color: #000000; 
+  font-family: Protest Riot, Arial, Helvetica, sans-serif;
+}
+
+#fruitLine {
+  justify-content: left;
+  align-items: start;
+  display: flex; 
+  width: 100px;
+  height: 100px;
+
+}
