@@ -1,10 +1,11 @@
 const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
-const clearButton = document.querySelector('#clearButton');
+
 
 
 const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
-
+//the search will take a string as an agrument and convert it to lowecase, then it
+//will filter and create a new array.
 function search(str) {
 	let results = [];
 	const searchTerm = str.toLowerCase();
@@ -14,14 +15,17 @@ function search(str) {
 	})
 	return results;
 }
-
+//this function is a handler for keyup event on the input. it will
+//call the search funtion being passed into user input and showsuggestions 
+//in order to display the results.
 function searchHandler(e) {
 	const userInput = e.target.value;
     const searchResults = search(userInput);
     showSuggestions(searchResults, userInput);
 }
 
-
+//this function will creal existing suggestions and then create a new li
+//for each result it finds and appends them to the suggestion list.
 function showSuggestions(results, inputVal) {
 
 		suggestions.innerHTML = '';
@@ -34,15 +38,18 @@ function showSuggestions(results, inputVal) {
 		});
 	}
 
-
+//fills the search bar with selected suggestions when a list item 
+//gets clicked and it will clear that suggestion
+//used capital LI since it is looking for a tagname and in HTML 
+//they are case insensitive, in order to keep things consistent 
+//i did the same in JS.
 function useSuggestion(e) {
-	// Populate the search bar with the selected suggestion
     if (e.target.tagName === 'LI') {
         input.value = e.target.textContent;
 		suggestions.innerHTML = '';
     }
 }
-
+//adds a highlight when hovering over suggestions.
 function highlightSuggestion(e) {
     // Highlight the suggestion on hover
     if (e.target.tagName === 'LI') {
@@ -51,7 +58,7 @@ function highlightSuggestion(e) {
 }
 
 function removeHighlight(e) {
-    // Remove highlight when not hovering over the suggestion
+    // Remove highlight when not hovering over the suggestion.
     if (e.target.tagName === 'LI') {
         e.target.classList.remove('highlight');
     }
